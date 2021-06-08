@@ -29,6 +29,24 @@ const routes = [{
         component: () =>
             import ("pages/Register.vue")
     },
+    {
+        path: '/banks',
+        children: [{
+                path: 'list',
+                name: 'bank_list',
+                component: () =>
+                    import ('pages/BankList.vue')
+            },
+            {
+                path: 'list/:name',
+                name: 'bank_select',
+                component: () =>
+                    import ('pages/BankSelect.vue')
+            },
+        ],
+        component: () =>
+            import ('layouts/PageLayout.vue')
+    },
 
     // Always leave this as last one,
     // but you can also remove it

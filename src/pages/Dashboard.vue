@@ -1,7 +1,7 @@
 <template>
   <q-page padding>
     <h5>Current Balance : {{ $store.getters.getBalance }}</h5>
-    <q-btn color="primary" unelevated label="Payment" class="q-mr-sm" />
+    <q-btn color="primary" unelevated label="Bank Transfer" class="q-mr-sm" to="/banks/list" />
     <q-btn
       unelevated
       :disable="$store.getters.getBalance < 1"
@@ -102,7 +102,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      authUser : 'currentUser'
+      authUser : 'getCurrentUser'
     })
   }
 };

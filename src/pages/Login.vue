@@ -53,7 +53,7 @@
   </div>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -63,33 +63,34 @@ export default {
         number: "",
         password: ""
       }
-    }
+    };
   },
   methods: {
     submit() {
-      this.loading = true
-      this.$store.dispatch("login", this.form).then(user => {
-        if (user) {
-          this.$store.commit('SET_CURRENT_USER', user)
-          this.$router.push({ name: "dashboard" })
-        } else {
-          this.$q.notify({
-            message: "Invalid credentials.",
-            color: "negative"
-          })
-        }
-      })
-
-      this.loading = false
+      this.loading = true;
+      setTimeout(() => {
+        this.$store.dispatch("login", this.form).then(user => {
+          if (user) {
+            this.$store.commit("SET_CURRENT_USER", user);
+            this.$router.push({ name: "dashboard" });
+          } else {
+            this.$q.notify({
+              message: "Invalid credentials.",
+              color: "negative"
+            });
+          }
+        });
+        this.loading = false;
+      }, 5000);
     }
   },
   computed: {
     ...mapGetters({
-      currentUser: 'currentUser'
+      currentUser: "currentUser"
     })
   },
   mounted() {
-    this.$store.commit('REMOVE_CURRENT_USER')
+    this.$store.commit("REMOVE_CURRENT_USER");
   }
-}
+};
 </script>

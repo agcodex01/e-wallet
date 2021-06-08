@@ -22,7 +22,20 @@ export default function( /* { ssrContext } */ ) {
             },
             transactions: [],
             users: [],
-            currentUser: null
+            currentUser: null,
+            banks: [{
+                    name: 'BPI'
+                },
+                {
+                    name: 'China Bank'
+                },
+                {
+                    name: 'BDO'
+                },
+                {
+                    name: 'Land Bank'
+                }
+            ]
         },
         getters: {
             getBalance: state => state.currentUser ? state.currentUser.money : 0,
@@ -32,7 +45,9 @@ export default function( /* { ssrContext } */ ) {
             getCurrentUser: state => state.currentUser,
             getAuthUser: state => credential => {
                 return state.users.find(account => account.number == credential.number && account.password == credential.password)
-            }
+            },
+            getBanks: state => state.banks
+
         },
         actions: {
             sendMoney({
