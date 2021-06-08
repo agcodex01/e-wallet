@@ -1,0 +1,12 @@
+{
+  "vetur.validation.template": false,
+  "vetur.format.enable": false,
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
+  
+  "vetur.experimental.templateInterpolationService": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "autoimport.semicolon": false,
+  "autoimport.useSemiColon": false,
+  "prettier.semi": false
+}
